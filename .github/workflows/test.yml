@@ -45,7 +45,7 @@ jobs:
           nocov_exit=$?
           pytest -v -m "not nocoverage" --cov
           cov_exit=$?
-          python -W ignore -m pip uninstall pytz
+          python -W ignore -m pip uninstall pytz -y
           pytest -v -m "not nocoverage" --cov -k test_helpers.py
           no_pytz_exit=$?
           pytz_exit=$(( nocov_exit > cov_exit ? nocov_exit : cov_exit ))
